@@ -1,0 +1,57 @@
+﻿@model SportClub.Models.Ticket
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Ticket</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NameTicket)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NameTicket)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.numberOfLesson)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.numberOfLesson)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SportHalls.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SportHalls.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Discounts.DiscountsID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Discounts.DiscountsID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TicketID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,29 @@
+﻿@model SportClub.Models.Discounts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Discounts</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.discounts)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.discounts)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PhytobarProduct.Products)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PhytobarProduct.Products)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.DiscountsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

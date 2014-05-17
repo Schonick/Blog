@@ -1,0 +1,50 @@
+﻿@model SportClub.Models.PhytobarProducts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PhytobarProducts</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Products)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Products)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Weight)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Weight)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Brand)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Brand)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PhytobarProductsID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

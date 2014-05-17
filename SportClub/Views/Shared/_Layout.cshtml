@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title — Спарта</title>
+    <link href="~/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            2
+            <div class="float-left">
+
+                <img src="~/Content/SiteColor/logo-sparta.png" alt="Alternate Text" />
+
+                @*@Html.ActionLink(" ", "Index", "Home", null, new { id = "_Logo" })*@
+
+                @*<p class="site-title">@Html.ActionLink(" Sparta", "Index", "Home")</p>*@
+            </div>
+            <div class="float-right">
+                <section id="login">
+                    @Html.Partial("_LoginPartial")
+                </section>
+                <nav>
+                    <ul id="menu">
+                        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                        <li>@Html.ActionLink("О клубе", "About", "Home")</li>
+                        <li>@Html.ActionLink("Правила клуба", "Rules", "Home")</li>
+                        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Memorabilia", "~/Foto/Default.html")</li>
+                        <li><a href="~/Foto/Default.html">Memorabilia</a></li>
+                        <li>@Html.ActionLink("Fitobar", "Index", "PhytobarProducts")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Contact")</li>
+                        <li>@Html.ActionLink("Slider", "Slider", "Home")</li>
+                        <li>@Html.ActionLink("Role", "Index", "Roles")</li>
+                        <li>@Html.ActionLink("Ticket", "Index", "Ticket")</li>
+                         <li>@Html.ActionLink("SportHalls", "Index", "SportHalls")</li>
+                         <li>@Html.ActionLink("Discounts", "Index", "Discounts")</li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        @RenderSection("featured", required: false)
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <div id="footer">
+            <div class="content-wrapper">
+                <div class="float-left">
+
+                    <p>&copy; @DateTime.Now.Year — Спортивный клуб Спарта | Хмельницкий </p>
+                </div>
+                <div class="float-right">
+                    <ul id="social">
+                        <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
+                        <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

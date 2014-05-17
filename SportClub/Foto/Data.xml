@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data transition="CrossFadeTransition">
+	<album>
+		<slide title="BRUCE SPRINGSTEEN" image="Images/amsterdam.jpg" />
+		<slide title="BLACK CROWES" image="Images/atlanta.jpg" />
+		<slide title="CHUCK BERRY" image="Images/baltimore.jpg" />
+		<slide title="AEROSMITH" image="Images/barcelona.jpg" />
+		<slide title="KISS" image="Images/berlin.jpg" />
+		<slide title="BLACK SABBATH" image="Images/birmingham.jpg" />
+		<slide title="ELTON JOHN" image="Images/cardiff.jpg" />
+		<slide title="CHEAP TRICK" image="Images/chicago.jpg" />
+		<slide title="SEX PISTOLS" image="Images/cleveland.jpg" />
+		<slide title="GEORGE MICHAEL" image="Images/cologne.jpg" />
+		<slide title="JOHN ENTWISTLE" image="Images/copenhagen.jpg" />
+		<slide title="KEITH RICHARDS" image="Images/dallas.jpg" />
+		<slide title="STEVIE NICKS" image="Images/denver.jpg" />
+		<slide title="ZAKK WYLDE" image="Images/destin.jpg" />
+		<slide title="ALICE COOPER" image="Images/detroit.jpg" />
+		<slide title="PETE TOWNSHEND" image="Images/edinburgh.jpg" />
+		<slide title="ELTON JOHN" image="Images/foxwoods.jpg" />
+		<slide title="BRIAN SETZER" image="Images/gatlinburg.jpg" />
+		<slide title="PRINCE" image="Images/hollywoodfl.jpg" />
+		<slide title="STEVE VAI" image="Images/honolulu.jpg" />
+		<slide title="BOB DYLAN" image="Images/houston.jpg" />
+		<slide title="JOHN MELLENCAMP" image="Images/indianapolis.jpg" />
+		<slide title="FRANK ZAPPA" image="Images/keywest.jpg" />
+		<slide title="THE VENTURES" image="Images/kona.jpg" />
+		<slide title="ZZ TOP" image="Images/lajolla.jpg" />
+		<slide title="BON JOVI" image="Images/lasvegas.jpg" />
+		<slide title="RED HOT CHILI PEPPERS" image="Images/leeds.jpg" />
+		<slide title="METALLICA" image="Images/lisbon.jpg" />
+		<slide title="ERIC CLAPTON" image="Images/london.jpg" />
+		<slide title="MADONNA" image="Images/losangeles.jpg" />
+		<slide title="CHARLIE DANIELS" image="Images/louisville.jpg" />
+		<slide title="JOHN LENNON" image="Images/madrid.jpg" />
+		<slide title="MADONNA" image="Images/manchester.jpg" />
+		<slide title="MAROON 5" image="Images/maui.jpg" />
+		<slide title="ELVIS PRESLEY" image="Images/memphis.jpg" />
+		<slide title="SHAKIRA" image="Images/miami.jpg" />
+		<slide title="PRINCE" image="Images/minneapolis.jpg" />
+		<slide title="KEITH RICHARDS" image="Images/munich.jpg" />
+		<slide title="HOOTIE AND THE BLOWFISH" image="Images/myrtlebeach.jpg" />
+		<slide title="CARL PERKINS" image="Images/nashville.jpg" />
+		<slide title="THE BEATLES" image="Images/neworleans.jpg" />
+		<slide title="THE RAMONES" image="Images/newyork.jpg" />
+		<slide title="GUNS N' ROSES" image="Images/niagrafalls.jpg" />
+		<slide title="THE WHO" image="Images/orlando.jpg" />
+		<slide title="THE POLICE" image="Images/paris.jpg" />
+		<slide title="RANDY RHOADS" image="Images/philadelphia.jpg" />
+		<slide title="TOM PETTY" image="Images/phoenix.jpg" />
+		<slide title="POISON" image="Images/pittsburgh.jpg" />
+		<slide title="VAN HALEN" image="Images/rome.jpg" />
+		<slide title="KORN" image="Images/sacramento.jpg" />
+		<slide title="JIMI HENDRIX" image="Images/saltlakecity.jpg" />
+		<slide title="MOTLEY CRUE" image="Images/sanantonio.jpg" />
+		<slide title="BONNIE RAITT" image="Images/sandiego.jpg" />
+		<slide title="JIMI HENDRIX" image="Images/sanfrancisco.jpg" />
+		<slide title="CHRIS ISAAK" image="Images/sanjuan.jpg" />
+		<slide title="B.B. KING" image="Images/skydome.jpg" />
+		<slide title="OZZY OSBOURNE" image="Images/stlouis.jpg" />
+		<slide title="JIM MORRISON" image="Images/toronto.jpg" />
+		<slide title="PRINCE" image="Images/universalhollywood.jpg" />
+		<slide title="JAKOB DYLAN" image="Images/washingtondc.jpg" />
+	</album>
+</data>

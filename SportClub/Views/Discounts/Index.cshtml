@@ -1,0 +1,39 @@
+﻿@model IEnumerable<SportClub.Models.Discounts>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.discounts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhytobarProduct.Products)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.discounts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhytobarProduct.Products)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DiscountsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DiscountsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DiscountsID })
+        </td>
+    </tr>
+}
+
+</table>

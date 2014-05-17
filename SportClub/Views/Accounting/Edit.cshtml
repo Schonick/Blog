@@ -1,0 +1,62 @@
+﻿@model SportClub.Models.Accounting
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Accounting</legend>
+
+        @Html.HiddenFor(model => model.AccountingID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClientID, "Client")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClientID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ClientID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Month)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Month)
+            @Html.ValidationMessageFor(model => model.Month)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Payment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Payment)
+            @Html.ValidationMessageFor(model => model.Payment)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TicketID, "Ticket")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("TicketID", String.Empty)
+            @Html.ValidationMessageFor(model => model.TicketID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
