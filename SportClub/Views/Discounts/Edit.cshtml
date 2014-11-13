@@ -16,19 +16,19 @@
         @Html.HiddenFor(model => model.DiscountsID)
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.Comment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Comment)
+            @Html.ValidationMessageFor(model => model.Comment)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.discounts)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.discounts)
             @Html.ValidationMessageFor(model => model.discounts)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PhytobarProductsID, "PhytobarProduct")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("PhytobarProductsID", String.Empty)
-            @Html.ValidationMessageFor(model => model.PhytobarProductsID)
         </div>
 
         <p>

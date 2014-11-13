@@ -1,50 +1,57 @@
 ﻿@model SportClub.Models.PhytobarProducts
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Детали";
 }
 
-<h2>Details</h2>
+<h2>Детали</h2>
 
 <fieldset>
     <legend>PhytobarProducts</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Products)
+        <b> @Html.DisplayNameFor(model => model.Products)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Products)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Description)
+         <b>@Html.DisplayNameFor(model => model.Description)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Description)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Weight)
+        <b> @Html.DisplayNameFor(model => model.Weight)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Weight)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Brand)
+         <b>@Html.DisplayNameFor(model => model.Brand)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Brand)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Price)
+        <b> @Html.DisplayNameFor(model => model.Price)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Price)
     </div>
+
+    <div class="display-label">
+         <b>@Html.DisplayNameFor(model => model.Discounts.Comment)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Discounts.Comment)
+    </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.PhytobarProductsID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id=Model.PhytobarProductsID }) |
+    @Html.ActionLink("Вернутся к списку", "Index")
 </p>

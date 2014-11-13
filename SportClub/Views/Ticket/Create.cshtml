@@ -2,11 +2,15 @@
 
 @{
     ViewBag.Title = "Create";
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.js"></script>
+
 }
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -46,6 +50,30 @@
         </div>
 
         <div class="editor-label">
+            @Html.LabelFor(model => model.Activna)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Activna)
+            @Html.ValidationMessageFor(model => model.Activna)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Vudana)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Vudana)
+            @Html.ValidationMessageFor(model => model.Vudana)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DeystvueDo)
+        </div>
+        <div class="editor-field" id="datepicker">
+            @Html.EditorFor(model => model.DeystvueDo)
+            @Html.ValidationMessageFor(model => model.DeystvueDo)
+        </div>
+
+        <div class="editor-label">
             @Html.LabelFor(model => model.SportHallID, "SportHalls")
         </div>
         <div class="editor-field">
@@ -73,4 +101,5 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
 }

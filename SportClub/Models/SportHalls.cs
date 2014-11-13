@@ -12,9 +12,11 @@ namespace SportClub.Models
         public int SportHallID { get; set; }
         [Display(Name = "Назва")]
         public string Name { get; set; }
+
         [Display(Name = "Опис")]
         public string Description { get; set; }
 
         public virtual ICollection<Ticket> Ticket { get; set; }
+        public virtual ICollection<Visits> Visits { get; set; }
     }
 }

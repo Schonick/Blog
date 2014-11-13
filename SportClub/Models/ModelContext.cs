@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using SportClub.Models.Blog;
 
 namespace SportClub.Models
 {
@@ -13,16 +14,28 @@ namespace SportClub.Models
         {
 
         }
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<Trainer> Trainers { get; set; }
-        public DbSet<Accounting> Accountings { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
-        public DbSet<SportHalls> SportHalls { get; set; }
+        #region Site
 
-        public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<webpages_Roles> webpages_Roles { get; set; }  // добавляем таблицу ролей
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Discounts> Discounts { get; set; }
+        public DbSet<Client> Clients { get; set; }//клієнти
+        public DbSet<Trainer> Trainers { get; set; }// тренера
+        public DbSet<Accounting> Accountings { get; set; }//платежі
+        public DbSet<Ticket> Tickets { get; set; }//абонементи
+        public DbSet<SportHalls> SportHalls { get; set; }//зали
+
+        public DbSet<UserProfile> UserProfiles { get; set; }//юзер
+        public DbSet<webpages_Roles> webpages_Roles { get; set; }  // добавляем таблицу ролей    
+        public DbSet<Discounts> Discounts { get; set; }// знижки
         public DbSet<PhytobarProducts> PhytobarProducts { get; set; }
+        public DbSet<Visits> Visits { get; set; }//відвідування
+        public DbSet<UploadFile> UploadFile { get; set; }
+        #endregion
+
+        #region Blog
+
+        public DbSet<Category> Categorys { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        #endregion
     }
 }

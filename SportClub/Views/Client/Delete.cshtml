@@ -4,11 +4,11 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Видалення</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Ви впевнені, що хочете видалити клієнта?</h3>
 <fieldset>
-    <legend>Client</legend>
+    <legend>Клієнт</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.FName)
@@ -32,16 +32,51 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Trainer.FName)
+         @Html.DisplayNameFor(model => model.Adress)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Trainer.FName)
+        @Html.DisplayFor(model => model.Adress)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.foto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.foto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+      <div class="display-label">
+         @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.activen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.activen)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Trainer.Image)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Trainer.Image)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="Видалити" /> |
+        @Html.ActionLink("До списку", "Index")
     </p>
 }

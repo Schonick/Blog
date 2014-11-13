@@ -39,6 +39,27 @@
     </div>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Activna)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Activna)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Vudana)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Vudana)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DeystvueDo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DeystvueDo)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.SportHalls.Name)
     </div>
     <div class="display-field">
@@ -46,10 +67,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Discounts.DiscountsID)
+         @Html.DisplayNameFor(model => model.Discounts.Comment)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Discounts.DiscountsID)
+        @Html.DisplayFor(model => model.Discounts.Comment)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

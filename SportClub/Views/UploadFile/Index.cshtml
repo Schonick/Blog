@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SportClub.Models.UploadFile>
+
+@{
+    ViewBag.Title = "Index";
+}
+@Html.ActionLink("Create New", "ADDFile")
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UploadFileID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PatchToFile)
+        </th>
+        <th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            <img alt="" width="80" height="80" src="@item"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UploadFileID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PatchToFile)
+        </td>
+        </tr>
+    }       
+        </table>
+
+        

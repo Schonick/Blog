@@ -14,8 +14,9 @@ namespace SportClub.Models
         {
             var client = new List<Client>
             {
-            new Client{FName="mark",LName="loyd",Phone="252525"}
+            new Client{FName="mark",LName="loyd",Phone=252525,Adress="home",activen=true}
             };
+
             client.ForEach(s => context.Clients.Add(s));
             context.SaveChanges();
         }

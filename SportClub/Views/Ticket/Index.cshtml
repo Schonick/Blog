@@ -24,10 +24,19 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Activna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vudana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeystvueDo)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.SportHalls.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Discounts.DiscountsID)
+            @Html.DisplayNameFor(model => model.Discounts.Comment)
         </th>
         <th></th>
     </tr>
@@ -47,10 +56,19 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Activna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vudana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeystvueDo)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.SportHalls.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Discounts.DiscountsID)
+            @Html.DisplayFor(modelItem => item.Discounts.Comment)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.TicketID }) |

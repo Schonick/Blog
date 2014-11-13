@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿h<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,39 +8,58 @@
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/kendo/css")
+    <link rel="stylesheet" href="@Url.Content("~/Content/kendo/kendo.common.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/kendo/kendo.metro.min.css")" />
+    <script src="@Url.Content("~/Scripts/kendo/jquery.min.js")"></script>
+    <script src="~/Scripts/kendo/kendo.web.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.aspnetmvc.min.js"></script>*@
+
 </head>
 <body>
     <header>
         <div class="content-wrapper">
-            2
             <div class="float-left">
-
-                <img src="~/Content/SiteColor/logo-sparta.png" alt="Alternate Text" />
-
+                <img src="~/Content/SiteColor/logo-sparta.png" alt="Alternate Text" />                
+               
                 @*@Html.ActionLink(" ", "Index", "Home", null, new { id = "_Logo" })*@
-
                 @*<p class="site-title">@Html.ActionLink(" Sparta", "Index", "Home")</p>*@
             </div>
             <div class="float-right">
                 <section id="login">
                     @Html.Partial("_LoginPartial")
-                </section>
-                <nav>
+                </section><br /><br />
+                <nav><br />
                     <ul id="menu">
+                         @if (ViewContext.HttpContext.User.IsInRole("Администратор"))
+                         {
+                         }
+                          @if (ViewContext.HttpContext.User.IsInRole("Модератор"))
+                         {
+                         }
+                       
                         <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                         <li>@Html.ActionLink("О клубе", "About", "Home")</li>
                         <li>@Html.ActionLink("Правила клуба", "Rules", "Home")</li>
                         <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Memorabilia", "~/Foto/Default.html")</li>
-                        <li><a href="~/Foto/Default.html">Memorabilia</a></li>
-                        <li>@Html.ActionLink("Fitobar", "Index", "PhytobarProducts")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Contact")</li>
+                        <li>@Html.ActionLink("Цена", "Price", "Home")</li>
+                        @*<li>@Html.ActionLink("Foto", "~/Foto/Default.html")</li>*@
+                        <li><a href="~/Foto/Default.html">Галерея</a></li>
+                        <li>        </li>
+                        <li>        </li>
+                        <li>       </li>
+                        @*<li>@Html.ActionLink("Фитобар", "Index", "PhytobarProducts")</li>
                         <li>@Html.ActionLink("Slider", "Slider", "Home")</li>
                         <li>@Html.ActionLink("Role", "Index", "Roles")</li>
-                        <li>@Html.ActionLink("Ticket", "Index", "Ticket")</li>
-                         <li>@Html.ActionLink("SportHalls", "Index", "SportHalls")</li>
-                         <li>@Html.ActionLink("Discounts", "Index", "Discounts")</li>
 
+                        <li>@Html.ActionLink("Абонемент", "Index", "Ticket")</li>
+                        <li>@Html.ActionLink("Зали", "Index", "SportHalls")</li>
+                        <li>@Html.ActionLink("Знижки", "Index", "Discounts")</li>
+                        <li>@Html.ActionLink("Клиенты", "Index", "Client")</li>
+                        <li>@Html.ActionLink("Посещение", "Index", "Visits")</li>
+                        <li>@Html.ActionLink("загрузка", "Index", "UploadFile")</li>
+                        <li>@Html.ActionLink("Тренери", "Index", "Trainer")</li>*@
+                           <li>@Html.ActionLink("blog", "Index", "Category")</li>
                     </ul>
                 </nav>
             </div>
@@ -63,6 +82,7 @@
                     <ul id="social">
                         <li><a href="http://facebook.com" class="facebook">Facebook</a></li>
                         <li><a href="http://twitter.com" class="twitter">Twitter</a></li>
+                        <li><a href="http://vk.com/club14932555" class="vkontakte">Vkontakte</a></li>
                     </ul>
                 </div>
             </div>
@@ -70,6 +90,9 @@
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
+      @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jqueryui")
+    @*@Scripts.Render("~/bundles/kendo")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

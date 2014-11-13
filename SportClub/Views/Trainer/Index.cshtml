@@ -1,16 +1,25 @@
 ﻿@model IEnumerable<SportClub.Models.Trainer>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Тренеры";
 }
-
-<h2>Index</h2>
+<h2>Список тренеров</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить тренера", "Create")
 </p>
+@*@using (Html.BeginForm("Index", "Student", FormMethod.Get))
+{
+    *@<p>
+        Поиск по имени: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Поиск" />
+    </p>
+@*}*@
 <table>
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.FName)
         </th>
@@ -21,31 +30,72 @@
             @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Salary)
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
         </th>
         <th></th>
     </tr>
+    @* <script type="text/javascript">
+        function openImageWindow(src) {
+            var image = new Image();
+            image.src = src;
+            var width = image.width;
+            var height = image.height;
+            window.open(src, "Image", "width=" + width + ",height=" + height);
+        }
+    </script>*@
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Salary)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TrainerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TrainerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TrainerID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div style="text-align: center;">
+                    <a href="#image">
+                        <img title="@item.LName @item.FName" src="@item.Image" width="120" height="120" alt="@item.LName @item.FName" /></a>
+                </div>
+
+                <a href="#x" class="overlay" id="image"></a>
+                <div class="popup">
+                    <img class="is-image" title="@item.LName" src="@item.Image" alt="@item.LName" />
+                    <a class="close" title="Закрыть" href="#close"></a>
+                </div>
+                @*<img alt="" width="120" height="120" onclick="openImageWindow(this.src)" title="@item.LName @item.FName" src="@item.Image"/>*@
+
+
+
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Trainer", new { id = item.TrainerID })">
+                    <img style="width: 30px; height: 30px;" alt="Редактировать" title="Редактировать" src="~/Content/edit.png" /></a>
+                <a href="@Url.Action("Details", "Trainer", new { id = item.TrainerID })">
+                    <img style="width: 30px; height: 30px;" alt="Детали" title="Детали" src="~/Content/details.png" /></a>
+                <a href="@Url.Action("Delete", "Trainer", new { id = item.TrainerID })">
+                    <img style="width: 30px; height: 30px;" alt="Удалить" title="Удалить" src="~/Content/delete.png" /></a>
+
+
+                @*@Html.ActionLink("Редактировать", "Edit", new { id=item.TrainerID }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.TrainerID }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.TrainerID })*@
+            </td>
+        </tr>
+    }
 
 </table>

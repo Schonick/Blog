@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SportClub.Models.Visits>
+
+@{
+    ViewBag.Title = "Посещения";
+}
+@* <link href="~/Content/kendo/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendo.dataviz.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendo.dataviz.default.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/kendo.default.mobile.min.css" rel="stylesheet" />
+    <script src="~/Scripts/kendo/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.all.min.js"></script>*@
+
+<h2>Список посещений</h2>
+
+<p>
+    @Html.ActionLink("Отметить", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SportHalls.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KeyFromLocker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.FName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SportHalls.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KeyFromLocker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.VisitsID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.VisitsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.VisitsID })
+        </td>
+    </tr>
+}
+
+</table>
+

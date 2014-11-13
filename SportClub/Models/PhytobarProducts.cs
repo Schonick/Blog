@@ -12,23 +12,34 @@ namespace SportClub.Models
         [Key]
         public int PhytobarProductsID { get; set; }
 
+        [Display(Name = "Фото")]
+        [DataType(DataType.ImageUrl)]
+        public string Image { get; set; }
+
         [Display(Name = "Продукт")]
+        [MaxLength(50)]
         public string Products { get; set; }
 
-        [Display(Name = "Опис")]
+        [Display(Name = "Описание")]
+        [MaxLength(150)]
         public string Description { get; set; }
 
 
-        [Display(Name = "Вага")]
+        [Display(Name = "Вес")]
+        [MaxLength(50)]
         public string Weight { get; set; }
 
-        [Display(Name = "Виробник")]
+        [Display(Name = "Производитель")]
+        [MaxLength(50)]
         public string Brand { get; set; }
 
-        [Display(Name = "Ціна")]
+        [Display(Name = "Цена")]
         public decimal Price { get; set; }
 
-        public virtual ICollection<Discounts> Discounts { get; set; }
+        //[Display(Name = "Знижка")]
+        public int DiscountsID { get; set; }
+
+        public virtual Discounts Discounts { get; set; }
 
     }
 }

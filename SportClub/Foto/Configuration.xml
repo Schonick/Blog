@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<configuration width="281" height="480" background="#000">
+<configuration width="500" height="610" background="#000">
 	<scripts>
 		<script key="AlbumButton" url="../../Scripts/Debug/AlbumButton.js" extendsClass="Button" />
 		<script key="AlbumNavigation" url="../../Scripts/Debug/AlbumNavigation.js" extendsClass="PageNavigation" />

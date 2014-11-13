@@ -41,7 +41,7 @@ namespace SportClub.Controllers
         public ActionResult Create()
         {
             ViewBag.SportHallID = new SelectList(db.SportHalls, "SportHallID", "Name");
-            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "DiscountsID");
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment");
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace SportClub.Controllers
             }
 
             ViewBag.SportHallID = new SelectList(db.SportHalls, "SportHallID", "Name", ticket.SportHallID);
-            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "DiscountsID", ticket.DiscountsID);
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment", ticket.DiscountsID);
             return View(ticket);
         }
 
@@ -75,7 +75,7 @@ namespace SportClub.Controllers
                 return HttpNotFound();
             }
             ViewBag.SportHallID = new SelectList(db.SportHalls, "SportHallID", "Name", ticket.SportHallID);
-            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "DiscountsID", ticket.DiscountsID);
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment", ticket.DiscountsID);
             return View(ticket);
         }
 
@@ -93,7 +93,7 @@ namespace SportClub.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.SportHallID = new SelectList(db.SportHalls, "SportHallID", "Name", ticket.SportHallID);
-            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "DiscountsID", ticket.DiscountsID);
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment", ticket.DiscountsID);
             return View(ticket);
         }
 

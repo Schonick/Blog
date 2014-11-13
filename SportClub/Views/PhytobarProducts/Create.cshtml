@@ -1,17 +1,25 @@
 ﻿@model SportClub.Models.PhytobarProducts
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Добавить";
 }
 
-<h2>Create</h2>
+<h2>Добавить продукт</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create", "PhytobarProducts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>PhytobarProducts</legend>
+
+          <div class="editor-label">
+            @Html.LabelFor(model => model.Image)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file1" id="file1" accept="image/*" />
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Products)
@@ -51,6 +59,14 @@
         <div class="editor-field">
             @Html.EditorFor(model => model.Price)
             @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DiscountsID, "Discounts")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DiscountsID", String.Empty)
+            @Html.ValidationMessageFor(model => model.DiscountsID)
         </div>
 
         <p>

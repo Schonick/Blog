@@ -4,40 +4,75 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Деталі</h2>
 
 <fieldset>
-    <legend>Client</legend>
+    <legend>Клієнт</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.FName)
+        @Html.DisplayNameFor(model => model.FName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.FName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.LName)
+        @Html.DisplayNameFor(model => model.LName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.LName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Phone)
+        @Html.DisplayNameFor(model => model.Phone)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Phone)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Trainer.FName)
+        @Html.DisplayNameFor(model => model.Adress)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Trainer.FName)
+        @Html.DisplayFor(model => model.Adress)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.foto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.foto)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Data)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.activen)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.activen)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Trainer.Image)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Trainer.Image)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ClientID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редагувати", "Edit", new { id = Model.ClientID }) |
+    @Html.ActionLink("До списку", "Index")
 </p>

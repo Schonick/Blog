@@ -25,11 +25,13 @@ namespace SportClub.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+
+        public virtual ICollection<webpages_Roles> webpages_Roles { get; set; }
     }
 
     public class RegisterExternalLoginModel
     {
-        [Required]     
+        [Required]
         [Display(Name = "Имя пользователя")]
         public string UserName { get; set; }
 
@@ -45,8 +47,10 @@ namespace SportClub.Models
         public int RoleId { get; set; }
         [Display(Name = "Имя роли")]
         public string RoleName { get; set; }
+
+        public virtual ICollection<UserProfile> UserProfile { get; set; }
     }
-    
+
     #endregion
 
     public class LocalPasswordModel

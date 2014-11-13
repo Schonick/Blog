@@ -39,11 +39,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kendo.Mvc">
+      <HintPath>..\..\..\..\..\Desktop\Kendo.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -183,10 +197,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
+    <Compile Include="BlogRepository\IRepository.cs" />
+    <Compile Include="BlogRepository\MethodForBlog.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountingController.cs" />
+    <Compile Include="Controllers\BlogControllers\CategoryController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DefaultConnection.cs" />
     <Compile Include="Controllers\DiscountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PhytobarProductsController.cs" />
@@ -194,12 +213,18 @@
     <Compile Include="Controllers\SportHallsController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\TrainerController.cs" />
+    <Compile Include="Controllers\UploadFileController.cs" />
+    <Compile Include="Controllers\VisitsController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Accounting.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\Blog\Category.cs" />
+    <Compile Include="Models\Blog\Comment.cs" />
+    <Compile Include="Models\Blog\Statistic.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContextInitializer.cs" />
@@ -208,11 +233,19 @@
     <Compile Include="Models\GeoPlace.cs" />
     <Compile Include="Models\ModelContext.cs" />
     <Compile Include="Models\PhytobarProducts.cs" />
-    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Blog\Post.cs" />
     <Compile Include="Models\SportHalls.cs" />
+    <Compile Include="Models\Blog\Tag.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\Trainer.cs" />
+    <Compile Include="Models\UploadFile.cs" />
+    <Compile Include="Models\Visits.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Administration\Content\css\ie.css" />
@@ -258,12 +291,48 @@
     <Content Include="Areas\Administration\js\jquery-1.5.2.min.js" />
     <Content Include="Areas\Administration\js\jquery.equalHeight.js" />
     <Content Include="Areas\Administration\js\jquery.tablesorter.min.js" />
+    <Content Include="Content\251.png" />
+    <Content Include="Content\300_movie_sparta.jpg" />
+    <Content Include="Content\allpriceimg.jpg" />
     <Content Include="Content\css\demo.css" />
     <Content Include="Content\css\elastislide.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\css\style.css" />
+    <Content Include="Content\delete.png" />
+    <Content Include="Content\details.png" />
+    <Content Include="Content\edit.png" />
+    <Content Include="Content\forWeb\2014-08-14 18.51.15.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.51.22.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.51.33.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.52.55.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.53.02.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.53.05.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.53.13.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.53.15.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.54.09.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.54.42.jpg" />
+    <Content Include="Content\forWeb\2014-08-14 18.55.14.jpg" />
+    <Content Include="Content\kendo\Default\editor.png" />
+    <Content Include="Content\kendo\Default\imagebrowser.png" />
+    <Content Include="Content\kendo\Default\loading-image.gif" />
+    <Content Include="Content\kendo\Default\loading.gif" />
+    <Content Include="Content\kendo\Default\slider-h.gif" />
+    <Content Include="Content\kendo\Default\slider-v.gif" />
+    <Content Include="Content\kendo\Default\sprite.png" />
+    <Content Include="Content\kendo\kendo.common.min.css" />
+    <Content Include="Content\kendo\kendo.dataviz.default.min.css" />
+    <Content Include="Content\kendo\kendo.dataviz.min.css" />
+    <Content Include="Content\kendo\kendo.dataviz.mobile.min.css" />
+    <Content Include="Content\kendo\kendo.default.min.css" />
+    <Content Include="Content\letter.png" />
+    <Content Include="Content\man.png" />
+    <Content Include="Content\more-button.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Parchment.png" />
     <Content Include="Content\price.png" />
+    <Content Include="Content\price2.png" />
+    <Content Include="Content\product\Tea.jpg" />
+    <Content Include="Content\read-more.png" />
     <Content Include="Content\SiteColor\300.png" />
     <Content Include="Content\SiteColor\300_movie_sparta.jpg" />
     <Content Include="Content\SiteColor\adress.png" />
@@ -326,75 +395,43 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="favicon.ico" />
+    <Content Include="Content\title\big_img_0000460.jpg" />
+    <Content Include="Content\title\cardio.jpg" />
     <Content Include="favicon.png" />
     <Content Include="Foto\Configuration.xml" />
     <Content Include="Foto\Data.xml" />
     <Content Include="Foto\Default.html" />
-    <Content Include="Foto\Images\amsterdam.jpg" />
-    <Content Include="Foto\Images\atlanta.jpg" />
-    <Content Include="Foto\Images\baltimore.jpg" />
-    <Content Include="Foto\Images\barcelona.jpg" />
-    <Content Include="Foto\Images\berlin.jpg" />
-    <Content Include="Foto\Images\birmingham.jpg" />
-    <Content Include="Foto\Images\cardiff.jpg" />
-    <Content Include="Foto\Images\chicago.jpg" />
-    <Content Include="Foto\Images\cleveland.jpg" />
-    <Content Include="Foto\Images\cologne.jpg" />
-    <Content Include="Foto\Images\copenhagen.jpg" />
-    <Content Include="Foto\Images\dallas.jpg" />
-    <Content Include="Foto\Images\denver.jpg" />
-    <Content Include="Foto\Images\destin.jpg" />
-    <Content Include="Foto\Images\detroit.jpg" />
-    <Content Include="Foto\Images\edinburgh.jpg" />
-    <Content Include="Foto\Images\foxwoods.jpg" />
-    <Content Include="Foto\Images\gatlinburg.jpg" />
-    <Content Include="Foto\Images\hollywoodfl.jpg" />
-    <Content Include="Foto\Images\honolulu.jpg" />
-    <Content Include="Foto\Images\houston.jpg" />
-    <Content Include="Foto\Images\indianapolis.jpg" />
-    <Content Include="Foto\Images\keywest.jpg" />
-    <Content Include="Foto\Images\kona.jpg" />
-    <Content Include="Foto\Images\lajolla.jpg" />
-    <Content Include="Foto\Images\lasvegas.jpg" />
-    <Content Include="Foto\Images\leeds.jpg" />
-    <Content Include="Foto\Images\lisbon.jpg" />
-    <Content Include="Foto\Images\london.jpg" />
-    <Content Include="Foto\Images\losangeles.jpg" />
-    <Content Include="Foto\Images\louisville.jpg" />
-    <Content Include="Foto\Images\madrid.jpg" />
-    <Content Include="Foto\Images\manchester.jpg" />
-    <Content Include="Foto\Images\maui.jpg" />
-    <Content Include="Foto\Images\memphis.jpg" />
-    <Content Include="Foto\Images\miami.jpg" />
-    <Content Include="Foto\Images\minneapolis.jpg" />
-    <Content Include="Foto\Images\munich.jpg" />
-    <Content Include="Foto\Images\myrtlebeach.jpg" />
-    <Content Include="Foto\Images\nashville.jpg" />
-    <Content Include="Foto\Images\neworleans.jpg" />
-    <Content Include="Foto\Images\newyork.jpg" />
-    <Content Include="Foto\Images\niagrafalls.jpg" />
-    <Content Include="Foto\Images\orlando.jpg" />
-    <Content Include="Foto\Images\paris.jpg" />
-    <Content Include="Foto\Images\philadelphia.jpg" />
-    <Content Include="Foto\Images\phoenix.jpg" />
-    <Content Include="Foto\Images\pittsburgh.jpg" />
-    <Content Include="Foto\Images\rome.jpg" />
-    <Content Include="Foto\Images\sacramento.jpg" />
-    <Content Include="Foto\Images\saltlakecity.jpg" />
-    <Content Include="Foto\Images\sanantonio.jpg" />
-    <Content Include="Foto\Images\sandiego.jpg" />
-    <Content Include="Foto\Images\sanfrancisco.jpg" />
-    <Content Include="Foto\Images\sanjuan.jpg" />
-    <Content Include="Foto\Images\skydome.jpg" />
-    <Content Include="Foto\Images\stlouis.jpg" />
-    <Content Include="Foto\Images\toronto.jpg" />
-    <Content Include="Foto\Images\universalhollywood.jpg" />
-    <Content Include="Foto\Images\washingtondc.jpg" />
+    <Content Include="Foto\Images\gantelya.jpg" />
+    <Content Include="Foto\Images\gum.jpg" />
+    <Content Include="Foto\Images\gurya.jpg" />
+    <Content Include="Foto\Images\IMG_2155.JPG" />
+    <Content Include="Foto\Images\IMG_2156.JPG" />
+    <Content Include="Foto\Images\IMG_2157.JPG" />
+    <Content Include="Foto\Images\IMG_2160.JPG" />
+    <Content Include="Foto\Images\IMG_2165.JPG" />
+    <Content Include="Foto\Images\IMG_2170-1.jpg" />
+    <Content Include="Foto\Images\IMG_2177.JPG" />
+    <Content Include="Foto\Images\IMG_2180.JPG" />
+    <Content Include="Foto\Images\IMG_2183.JPG" />
+    <Content Include="Foto\Images\IMG_2186.JPG" />
+    <Content Include="Foto\Images\IMG_2187.JPG" />
+    <Content Include="Foto\Images\IMG_2189.JPG" />
+    <Content Include="Foto\Images\IMG_2190.JPG" />
+    <Content Include="Foto\Images\IMG_2193.JPG" />
+    <Content Include="Foto\Images\IMG_2195.JPG" />
+    <Content Include="Foto\Images\kachok.jpg" />
+    <Content Include="Foto\Images\mozg.jpg" />
+    <Content Include="Foto\Images\playtrain.jpg" />
+    <Content Include="Foto\Images\shvarc.jpg" />
+    <Content Include="Foto\Images\trenya.jpg" />
+    <Content Include="Foto\Images\tyaga.jpg" />
+    <Content Include="Foto\Images\tyaga2.jpg" />
+    <Content Include="Foto\Images\zal.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Administration\Views\Web.config" />
     <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_AdminLayout.cshtml" />
+    <None Include="Properties\PublishProfiles\Vova.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\facebook.png" />
     <Content Include="Content\images\1.jpg" />
@@ -423,7 +460,6 @@
     <Content Include="Content\images\9.jpg" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\black.png" />
-    <Content Include="Content\images\ImageAttribution.txt" />
     <Content Include="Content\images\nav.png" />
     <Content Include="Content\images\nav_thumbs.png" />
     <Content Include="Content\images\pattern.png" />
@@ -453,6 +489,8 @@
     <Content Include="Content\images\thumbs\9.jpg" />
     <Content Include="Content\images\views.png" />
     <Content Include="Images\twitter.png" />
+    <Content Include="Images\vk.png" />
+    <Content Include="LoginAndPassword.txt" />
     <Content Include="Scripts\Debug\AlbumButton.js" />
     <Content Include="Scripts\Debug\AlbumNavigation.js" />
     <Content Include="Scripts\Debug\AlbumViewer.js" />
@@ -497,16 +535,24 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\demoad.js" />
     <Content Include="Scripts\js\gallery.js" />
     <Content Include="Scripts\js\jquery.easing.1.3.js" />
     <Content Include="Scripts\js\jquery.elastislide.js" />
     <Content Include="Scripts\js\jquery.tmpl.min.js" />
+    <Content Include="Scripts\kendo\jquery.min.js" />
+    <Content Include="Scripts\kendo\kendo.all.min.js" />
+    <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\kendo\kendo.web.min.js" />
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\new.js" />
     <Content Include="Scripts\Silverlight.js" />
     <Content Include="Scripts\SlideShow.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -555,11 +601,6 @@
     <Content Include="Views\Client\Create.cshtml" />
     <Content Include="Views\Client\Edit.cshtml" />
     <Content Include="Views\Client\Delete.cshtml" />
-    <Content Include="Views\Discounts\Index.cshtml" />
-    <Content Include="Views\Discounts\Details.cshtml" />
-    <Content Include="Views\Discounts\Create.cshtml" />
-    <Content Include="Views\Discounts\Edit.cshtml" />
-    <Content Include="Views\Discounts\Delete.cshtml" />
     <Content Include="Views\PhytobarProducts\Index.cshtml" />
     <Content Include="Views\PhytobarProducts\Details.cshtml" />
     <Content Include="Views\PhytobarProducts\Create.cshtml" />
@@ -575,11 +616,6 @@
     <Content Include="Views\Ticket\Create.cshtml" />
     <Content Include="Views\Ticket\Edit.cshtml" />
     <Content Include="Views\Ticket\Delete.cshtml" />
-    <Content Include="Views\Trainer\Index.cshtml" />
-    <Content Include="Views\Trainer\Details.cshtml" />
-    <Content Include="Views\Trainer\Create.cshtml" />
-    <Content Include="Views\Trainer\Edit.cshtml" />
-    <Content Include="Views\Trainer\Delete.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\Contact\ContactSuccess.cshtml" />
     <Content Include="Views\Home\Slider.cshtml" />
@@ -589,14 +625,53 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Home\Rules.cshtml" />
-    <Content Include="Views\Home\TicketTest.cshtml" />
+    <Content Include="Views\Visits\Index.cshtml" />
+    <Content Include="Views\Visits\Details.cshtml" />
+    <Content Include="Views\Visits\Create.cshtml" />
+    <Content Include="Views\Visits\Edit.cshtml" />
+    <Content Include="Views\Visits\Delete.cshtml" />
+    <Content Include="Views\Discounts\Index.cshtml" />
+    <Content Include="Views\Discounts\Details.cshtml" />
+    <Content Include="Views\Discounts\Create.cshtml" />
+    <Content Include="Views\Discounts\Edit.cshtml" />
+    <Content Include="Views\Discounts\Delete.cshtml" />
+    <Content Include="Views\UploadFile\Index.cshtml" />
+    <Content Include="Views\UploadFile\ADDFile.cshtml" />
+    <Content Include="Views\Home\Kardio.cshtml" />
+    <Content Include="Views\Home\Sila.cshtml" />
+    <Content Include="Views\Home\Room.cshtml" />
+    <Content Include="SequenceDiagram1.sequencediagram" />
+    <Content Include="Views\Home\Price.cshtml" />
+    <Content Include="Views\Trainer\Index.cshtml" />
+    <Content Include="Views\Trainer\Details.cshtml" />
+    <Content Include="Views\Trainer\Create.cshtml" />
+    <Content Include="Views\Trainer\Edit.cshtml" />
+    <Content Include="Views\Trainer\Delete.cshtml" />
+    <Content Include="Views\Home\News1.cshtml" />
+    <Content Include="Views\Home\News2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Content\avatarku\" />
+    <Folder Include="Content\UploadFile\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SequenceDiagram1.sequencediagram.layout">
+      <DependentUpon>SequenceDiagram1.sequencediagram</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -614,7 +689,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>9623</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:21190/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

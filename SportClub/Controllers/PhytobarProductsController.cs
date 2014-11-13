@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using SportClub.Models;
+using System.IO;
 
 namespace SportClub.Controllers
 {
@@ -18,7 +19,8 @@ namespace SportClub.Controllers
 
         public ActionResult Index()
         {
-            return View(db.PhytobarProducts.ToList());
+            var phytobarproducts = db.PhytobarProducts.Include(p => p.Discounts);
+            return View(phytobarproducts.ToList());
         }
 
         //
@@ -39,6 +41,7 @@ namespace SportClub.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment");
             return View();
         }
 
@@ -46,17 +49,33 @@ namespace SportClub.Controllers
         // POST: /PhytobarProducts/Create
 
         [HttpPost]
+        [Authorize(Users = "admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PhytobarProducts phytobarproducts)
+        public ActionResult Create(HttpPostedFileBase[] file1, PhytobarProducts phytobarproducts)
         {
             if (ModelState.IsValid)
             {
-                db.PhytobarProducts.Add(phytobarproducts);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                foreach (var file in file1)
+                {
+                    if (file == null) continue;
+                    UploadTrainerIco(phytobarproducts, file);
+                    db.PhytobarProducts.Add(phytobarproducts);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
-
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment", phytobarproducts.DiscountsID);
             return View(phytobarproducts);
+        }
+
+        private void UploadTrainerIco(PhytobarProducts phytobarproducts, HttpPostedFileBase file)
+        {
+            //string fileName = null;
+            var uploadDir = "/Content/product/";
+            var fileName = Path.GetFileName(file.FileName);
+            var path = Path.Combine(Server.MapPath(uploadDir) + fileName);
+            if (fileName != null) file.SaveAs(path);
+            phytobarproducts.Image = "/Content/product/" + fileName;
         }
 
         //
@@ -69,6 +88,7 @@ namespace SportClub.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment", phytobarproducts.DiscountsID);
             return View(phytobarproducts);
         }
 
@@ -76,6 +96,7 @@ namespace SportClub.Controllers
         // POST: /PhytobarProducts/Edit/5
 
         [HttpPost]
+        [Authorize(Users = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(PhytobarProducts phytobarproducts)
         {
@@ -85,6 +106,7 @@ namespace SportClub.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.DiscountsID = new SelectList(db.Discounts, "DiscountsID", "Comment", phytobarproducts.DiscountsID);
             return View(phytobarproducts);
         }
 
@@ -105,6 +127,7 @@ namespace SportClub.Controllers
         // POST: /PhytobarProducts/Delete/5
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Users = "admin")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

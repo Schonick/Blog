@@ -1,0 +1,19 @@
+﻿@model SportClub.Models.UploadFile
+
+@{
+    ViewBag.Title = "ADDFile";
+}
+
+<h2>ADDFile</h2>
+
+@using (Html.BeginForm("ADDFile", "UploadFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>File</legend>
+        @Html.LabelFor(model => model.PatchToFile)
+        <input type="file" name="file1" id="file1" accept="image/*" />
+    </fieldset>
+}

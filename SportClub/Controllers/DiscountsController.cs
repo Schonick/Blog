@@ -18,8 +18,7 @@ namespace SportClub.Controllers
 
         public ActionResult Index()
         {
-            var discounts = db.Discounts.Include(d => d.PhytobarProduct);
-            return View(discounts.ToList());
+            return View(db.Discounts.ToList());
         }
 
         //
@@ -40,7 +39,6 @@ namespace SportClub.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.PhytobarProductsID = new SelectList(db.PhytobarProducts, "PhytobarProductsID", "Products");
             return View();
         }
 
@@ -58,7 +56,6 @@ namespace SportClub.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.PhytobarProductsID = new SelectList(db.PhytobarProducts, "PhytobarProductsID", "Products", discounts.PhytobarProductsID);
             return View(discounts);
         }
 
@@ -72,7 +69,6 @@ namespace SportClub.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.PhytobarProductsID = new SelectList(db.PhytobarProducts, "PhytobarProductsID", "Products", discounts.PhytobarProductsID);
             return View(discounts);
         }
 
@@ -89,7 +85,6 @@ namespace SportClub.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.PhytobarProductsID = new SelectList(db.PhytobarProducts, "PhytobarProductsID", "Products", discounts.PhytobarProductsID);
             return View(discounts);
         }
 

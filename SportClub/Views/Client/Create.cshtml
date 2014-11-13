@@ -1,17 +1,25 @@
 ﻿@model SportClub.Models.Client
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Додати";
 }
 
-<h2>Create</h2>
+<h2>Додати клієнта</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm("Create", "Client", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
         <legend>Client</legend>
+
+         <div class="editor-label">
+            @Html.LabelFor(model => model.foto)
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file1" id="file1" accept="image/*" />
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.FName)
@@ -38,21 +46,44 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.TrainerID, "Trainer")
+            @Html.LabelFor(model => model.Adress)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Adress)
+            @Html.ValidationMessageFor(model => model.Adress)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Data)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Data)
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.activen)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.activen)
+            @Html.ValidationMessageFor(model => model.activen)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TrainerID, "Тренери")
         </div>
         <div class="editor-field">
             @Html.DropDownList("TrainerID", String.Empty)
             @Html.ValidationMessageFor(model => model.TrainerID)
         </div>
-
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Додати" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Повернутися до списку", "Index")
 </div>
 
 @section Scripts {

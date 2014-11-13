@@ -1,43 +1,58 @@
 ﻿@model SportClub.Models.Trainer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Детали";
 }
 
-<h2>Details</h2>
+<h2>Детали</h2>
 
 <fieldset>
     <legend>Trainer</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.FName)
+        <b>@Html.DisplayNameFor(model => model.Image)</b>
+    </div>
+    <div class="display-field">
+        <img alt="" width="80" height="80" src="@Url.Content(@Model.Image.ToString())"/>
+        @*@Html.DisplayFor(model => model.Image)*@
+    </div>
+
+    <div class="display-label">
+        <b>@Html.DisplayNameFor(model => model.FName)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.FName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.LName)
+        <b>@Html.DisplayNameFor(model => model.LName)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.LName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Phone)
+        <b>@Html.DisplayNameFor(model => model.Phone)</b>
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Phone)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Salary)
+       <b> @Html.DisplayNameFor(model => model.Description)</b>
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Salary)
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+        <b>@Html.DisplayNameFor(model => model.Data)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Data)
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.TrainerID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.TrainerID }) |
+    @Html.ActionLink("Вернутся к списку", "Index")
 </p>

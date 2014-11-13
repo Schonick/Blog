@@ -8,10 +8,14 @@ namespace SportClub.Models
 {
     public class Ticket
     {
+        public Ticket()
+        {
+            numberOfLesson = 0;
+        }
         [Key]
         public int TicketID { get; set; }
 
-        [Display(Name = "Name")]
+        [Display(Name = "Вид абонемента")]
         public string NameTicket { get; set; }
 
         [Display(Name = "Опис")]
@@ -22,6 +26,17 @@ namespace SportClub.Models
 
         [Display(Name = "Ціна")]
         public decimal Price { get; set; }
+
+        [Display(Name = "Активна")]
+        public bool Activna { get; set; }
+
+        [Display(Name = "Видана")]
+        [DataType(DataType.Date, ErrorMessage = "Введіть дату")]
+        public DateTime Vudana { get; set; }
+
+        [Display(Name = "Діє до")]
+        [DataType(DataType.Date, ErrorMessage = "Введіть дату")]
+        public DateTime DeystvueDo { get; set; }
 
         public int SportHallID { get; set; }
 

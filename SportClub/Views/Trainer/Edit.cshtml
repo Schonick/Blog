@@ -1,12 +1,14 @@
 ﻿@model SportClub.Models.Trainer
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Редактировать";
 }
 
-<h2>Edit</h2>
+<h2>Редактировать</h2>
+<br />
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -14,6 +16,19 @@
         <legend>Trainer</legend>
 
         @Html.HiddenFor(model => model.TrainerID)
+
+          <div class="editor-label">
+            @Html.LabelFor(model => model.Image)
+        </div>
+        <div class="editor-label">
+            <img alt="" width="200" height="200" src="@Url.Content(@Model.Image.ToString())"/>
+        </div>
+        <div class="editor-field">
+            <input type="file" name="file1" id="file1" accept="image/*"  />
+     
+            @*@Html.EditorFor(model => model.Image)*@
+            @Html.ValidationMessageFor(model => model.Image)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.FName)
@@ -40,21 +55,29 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Salary)
+            @Html.LabelFor(model => model.Description)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Salary)
-            @Html.ValidationMessageFor(model => model.Salary)
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Data)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Data)
+            @Html.ValidationMessageFor(model => model.Data)
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="Сохраниить" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Вернутся к списку", "Index")
 </div>
 
 @section Scripts {

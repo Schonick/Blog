@@ -4,21 +4,28 @@
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
+
 </hgroup>
-
+<div class="float-right">
+    <p>
+        Отправить
+        <br />
+        сообщение
+    </p>
+    <a href="@Url.Action("Contact", "Contact")">
+        <img width="50" alt="Отправить сообщение" title="Отправить сообщение" src="~/Content/251.png" /></a>
+</div>
 <section class="contact">
-
     <header>
         <h3>Телефон</h3>
     </header>
     <p>
-        <span class="label">Головний:</span>
+        <span class="label">Главный:</span>
         <span>0382-70-54-46</span>
     </p>
     <p>
-        <span class="label">У неробочий час:</span>
-        <span>0382-70-54-46</span>
+        <span class="label">В нерабочее время:</span>
+        <span>097-42-11-095</span>
     </p>
 </section>
 
@@ -26,23 +33,23 @@
     <header>
         <h3>Email</h3>
     </header>
-    <p>
+    @*<p>
         <span class="label">Support:</span>
         <span><a href="mailto:Support@example.com">Support@example.com</a></span>
     </p>
     <p>
         <span class="label">Marketing:</span>
         <span><a href="mailto:Marketing@example.com">Marketing@example.com</a></span>
-    </p>
+    </p>*@
     <p>
-        <span class="label">General:</span>
-        <span><a href="mailto:General@example.com">General@example.com</a></span>
+        <span class="label">Директор:</span>
+        <span><a href="mailto:General@example.com">victorshatk@gmail.com</a></span>
     </p>
 </section>
 
 <section class="contact">
     <header>
-        <h3>Адреса</h3>
+        <h3>Адресс</h3>
     </header>
     <p>
         Хмельницкий,
@@ -60,7 +67,7 @@
         выходной: воскресенье        
     </p>
 </section>
-<a href="http://vk.com/club14932555">Мы в соц. сетях</a>
+
 
 <h3>Карта</h3>
 <!-- BEGIN Map-->
@@ -102,11 +109,11 @@
 
         // Google has tweaked their interface somewhat - this tells the api to use that new UI
         google.maps.visualRefresh = true;
-        var Khmelnitsky = new google.maps.LatLng(49.42161, 26.99653);
+        var Khmelnitsky = new google.maps.LatLng(49.419575, 26.976050);
 
         // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
         var mapOptions = {
-            zoom: 15,
+            zoom: 16,
             center: Khmelnitsky,
             mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
         };
@@ -115,12 +122,12 @@
         var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
         // This shows adding a simple pin "marker" - this happens to be the Tate Gallery in Liverpool!
-        var myLatlng = new google.maps.LatLng(49.42161, 26.99653);
+        var myLatlng = new google.maps.LatLng(49.419575, 26.976050);
 
         var marker = new google.maps.Marker({
             position: myLatlng,
             map: map,
-            title: 'м.Хмельницький'
+            title: 'м.Хмельницький, зупинка "Фылармонія"'
         });
 
         // You can make markers different colors...  google it up!

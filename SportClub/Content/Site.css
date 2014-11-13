@@ -2,11 +2,13 @@
     background-color: #e2e2e2;
     margin: 0;
     padding: 0;
+    height: inherit;
+    height: 100%;
 }
 
 body {
     background-image: url(SiteColor/300.png);
-    background-size: cover;
+    background-size: 100%;
     background-color: #FF7E00;
     border-top: solid 10px #000;
     color: #333;
@@ -14,6 +16,8 @@ body {
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     margin: 0;
     padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
 a {
@@ -104,6 +108,9 @@ h5, h6 {
     background-color: #FFBF00;
     clear: both;
     padding-bottom: 35px;
+    height: 100%;
+    min-height: 100%;
+    height: auto;
 }
 
 .main-content {
@@ -543,7 +550,7 @@ ul#social li {
         text-decoration: none;
     }
 
-a.facebook, a.twitter {
+a.facebook, a.twitter, a.vkontakte {
     display: block;
     float: left;
     height: 24px;
@@ -560,6 +567,9 @@ a.twitter {
     background: url("../Images/twitter.png") no-repeat;
 }
 
+a.vkontakte {
+    background: url("../Images/vk.png") no-repeat;
+}
 /* tables
 ----------------------------------------------------------*/
 table {
@@ -567,6 +577,7 @@ table {
     border-spacing: 0;
     margin-top: 0.75em;
     border: 0 none;
+    width: 100%;
 }
 
 th {
@@ -795,7 +806,7 @@ tr.pager td {
         margin: 0;
     }
 
-    a.facebook, a.twitter {
+    a.facebook, a.twitter, a.vkontakte {
         background: none;
         display: inline;
         float: none;
@@ -813,8 +824,231 @@ tr.pager td {
 #_Logo {
     background-image: url("SiteColor/logo-sparta.png");
     width: 325px;
-    height:125px;
+    height: 125px;
     display: block;
     visibility: visible;
-    
+}
+
+/*dropdawn*/
+
+select#ClientID {
+    width: 312px;
+    height: 32px;
+}
+
+select#SportHallID {
+    width: 312px;
+    height: 32px;
+}
+
+select#TrainerID {
+    width: 312px;
+    height: 32px;
+}
+
+select#DiscountsID {
+    width: 312px;
+    height: 32px;
+}
+
+.tab {
+    width: 250px;
+    border: solid;
+    background-color: #C60;
+}
+
+.im {
+    width: inherit;
+    height: initial;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.tx {
+    font-family: Kartika;
+    font-style: italic;
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+}
+
+.al {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px 20px;
+}
+
+.about {
+    font-family: Kartika;
+    font-style: italic;
+    font-size: medium;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.rules {
+    /*font-family: Kartika;*/
+    font-style: italic;
+    font-size: medium;
+    text-align: justify;
+    /*font-weight: bold;*/
+    color: #000000;
+}
+
+#border {
+    width: 500px;
+    border-radius: 35px;
+}
+
+.size {
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%;
+    background-size: 100%;
+    height: 300px;
+    width: 400px;
+}
+
+.Button {
+
+height:40px;
+width:120px;
+}
+
+#parent_popup {
+  background: #000;
+  height: 100%;
+  opacity: 0.9;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+#popup {
+  background-color: #00f;
+  height: 200px;
+  position: fixed;
+  top: 100px;
+  left: 40%;
+  color: #f00;
+  width: 300px;
+}
+
+/* Форимируем слой затемнения фона */
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 1;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+/* Позиционирум медиа-элементы внутри окна */
+.is-image {
+  width: 100%;
+  display: inline-block;
+  height: auto;
+  margin: auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+embed, iframe {
+  width: 100%;
+  min-width: 320px;
+  max-width: 600px;
+ 
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+/* Формируем и позиционируем всплывающее окно */
+.popup { 
+    min-width: 320px;
+    max-width: 600px;
+    width: 600px;
+    margin: auto;
+    background-color: #fff;
+    border: 3px solid #fff;
+    display: block;
+    left: 0; right: 0;
+    opacity: 0;
+    padding: 15px;
+    position: fixed;
+    font-size: 14px;
+    top: 0;
+    visibility: hidden;
+    z-index: 10;
+/* Скругление углов окна  */	
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+/* Тень блока окна  */	
+    -webkit-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -moz-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -ms-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    -o-box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.4) inset;
+/* Устанавливаем эффект перехода появления окна */ 
+    -webkit-transition: opacity .5s, top .5s;
+    -moz-transition: opacity .5s, top .5s;
+    -ms-transition: opacity .5s, top .5s;
+    -o-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s;
+}
+/* Устанавливаем позицию появления окна */ 
+.overlay:target+.popup {
+    top: 20%;
+    opacity: 1;
+    visibility: visible;
+}
+/* Оформляем и позицонируем кнопку закрытия */
+.close {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #ccc;
+    height: 24px;
+    line-height: 24px;
+    position: absolute;
+    right: -13px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;padding: 0;
+    top: -15px;
+    width: 24px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    border-radius: 15px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:before {
+    color: rgba(255, 255, 255, 0.9);
+    content: "X";
+    font-size: 14px;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+}
+.close:hover {
+    background-color: rgba(64, 128, 128, 0.8);
+}
+.popup p, .popup div {
+    margin-bottom: 10px;
 }

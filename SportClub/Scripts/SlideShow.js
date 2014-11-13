@@ -930,6 +930,8 @@ SlideShow.Control = function(options)
 		width: 640,
 		height: 480,
 		background: "Black",
+		//backgroundimage: "~/Content/300_movie_sparta.jpeg",
+        
 		windowless: false,
 		framerate: 48,
 		enableframeratecounter: false,

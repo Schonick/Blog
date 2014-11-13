@@ -55,7 +55,7 @@
 	<header id="header">
 		<hgroup>
 			<h1 class="site_title">@Html.ActionLink("Website Admin","Index","Admin")</h1>
-			<h2 class="section_title">Dashboard</h2><h3 class="btn_view_site"> <a href="https://www.google.com.ua">View Site</a></h3>
+			<h2 class="section_title">Dashboard</h2><h3 class="btn_view_site"> <a href="http://sparta.somee.com">View Site</a></h3>
 		</hgroup>
 	</header> <!-- end of header bar -->
 	
@@ -76,7 +76,7 @@
 		<hr/>
 		<h3>Content</h3>
 		<ul class="toggle">
-			<li class="icn_new_article"><a href="#">New Article</a></li>
+			<li class="icn_new_article"><a href="@Url.Action("Index", "Home")</li>">New Article</a></li>
 			<li class="icn_edit_article"><a href="#">Edit Articles</a></li>
 			<li class="icn_categories"><a href="#">Categories</a></li>
 			<li class="icn_tags"><a href="#">Tags</a></li>

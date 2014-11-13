@@ -11,17 +11,17 @@
     <legend>Discounts</legend>
 
     <div class="display-label">
+         @Html.DisplayNameFor(model => model.Comment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Comment)
+    </div>
+
+    <div class="display-label">
          @Html.DisplayNameFor(model => model.discounts)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.discounts)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.PhytobarProduct.Products)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.PhytobarProduct.Products)
     </div>
 </fieldset>
 @using (Html.BeginForm()) {

@@ -1,51 +1,92 @@
-﻿@model IEnumerable<SportClub.Models.Client>
-
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<SportClub.Models.Client>
+@*@model IEnumerable<SportClub.Models.Client>*@
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Користувачі";
 }
 
-<h2>Index</h2>
+<h2>Користувачі</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Додати користувача", "Create")
 </p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trainer.FName)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trainer.FName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ClientID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ClientID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ClientID })
-        </td>
-    </tr>
+@using (Html.BeginForm("Index", "Student", FormMethod.Get))
+{
+    <p>
+          Пошук по імені: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="submit" value="Пошук" />
+    </p>
 }
 
+<table>
+
+    <tr style="border-top: 1px solid #dddddd;">
+        <th style:"text-align">
+            @*@Html.DisplayNameFor(model => model.Image)*@Фото
+        </th>
+        <th >
+            @*@Html.DisplayNameFor(model => model.FName)*@Ім'я
+        </th>
+        <th>
+            @Html.ActionLink("Прізвище", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Phone)*@Телефон
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Adress)*@Адреса
+        </th>
+        <th>
+             @Html.ActionLink("Дата", "Index", new { sortOrder = ViewBag.DateSortParm, currentFilter = ViewBag.CurrentFilter })
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.activen)*@Активний
+        </th>
+        <th >
+            @*@Html.DisplayNameFor(model => model.Trainer.FName)*@ Тренери
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr >
+            <td>
+                <img alt="" width="80" height="80" src="@item.foto"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adress)
+            </td>
+            <td>
+                @*@Html.DisplayNameFor(model => model.Data)*@ 
+                @item.Data
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.activen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trainer.FName)
+            </td>
+            <td>
+                @Html.ActionLink("Редагувати", "Edit", new { id = item.ClientID }) |
+                @Html.ActionLink("Детальніше", "Details", new { id = item.ClientID }) |
+                @Html.ActionLink("Видалити", "Delete", new { id = item.ClientID })
+            </td>
+        </tr>
+    }
+
 </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
