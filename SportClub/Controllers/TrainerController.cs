@@ -81,7 +81,7 @@ namespace SportClub.Controllers
         //
         // GET: /Trainer/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        public ActionResult Edit(int? id )
         {
             Trainer trainer = db.Trainers.Find(id);
             if (trainer == null)

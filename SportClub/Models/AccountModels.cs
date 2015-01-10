@@ -8,16 +8,6 @@ using System.Web.Security;
 
 namespace SportClub.Models
 {
-    /* public class UsersContext : DbContext
-     {
-         public UsersContext()
-             : base("DefaultConnection")
-         {
-         }
-
-         public DbSet<UserProfile> UserProfiles { get; set; }
-     }
-     */
     [Table("UserProfile")]
     public class UserProfile
     {
@@ -25,8 +15,6 @@ namespace SportClub.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
-
-        public virtual ICollection<webpages_Roles> webpages_Roles { get; set; }
     }
 
     public class RegisterExternalLoginModel
@@ -37,21 +25,6 @@ namespace SportClub.Models
 
         public string ExternalLoginData { get; set; }
     }
-
-    #region Роли
-    [Table("webpages_Roles")]
-    public class webpages_Roles
-    {
-        [Key]
-        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-        public int RoleId { get; set; }
-        [Display(Name = "Имя роли")]
-        public string RoleName { get; set; }
-
-        public virtual ICollection<UserProfile> UserProfile { get; set; }
-    }
-
-    #endregion
 
     public class LocalPasswordModel
     {

@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using NLog;
 
 namespace SportClub
 {
@@ -14,8 +15,10 @@ namespace SportClub
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         protected void Application_Start()
         {
+            logger.Info("Application Start");
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);

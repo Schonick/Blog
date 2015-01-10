@@ -33,8 +33,6 @@ namespace SportClub.Models
         [MaxLength(150)]
         public string Adress { get; set; }
 
-
-
         [Display(Name = "Дата додання")]
         [DataType(DataType.Date, ErrorMessage = "Введіть дату")]
         public DateTime Data { get; set; }

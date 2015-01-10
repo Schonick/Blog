@@ -45,21 +45,20 @@ namespace SportClub.Controllers.BlogControllers
         [HttpPost]
         public ActionResult Create(Category category)
         {
-            try
-            {
+            //try
+            //{
                 if (ModelState.IsValid)
                 {
                     db.Create(category);
                     db.Save();
                 }
                 // TODO: Add insert logic here
-
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         //
@@ -77,21 +76,22 @@ namespace SportClub.Controllers.BlogControllers
         [HttpPost]
         public ActionResult Edit(Category category)
         {
-            try
-            {// TODO: Add update logic here
+            //try
+            //{// TODO: Add update logic here
 
                 if (ModelState.IsValid)
                 {
                     db.Update(category);
                     db.Save();
+                    return RedirectToAction("Index");
                 }
-                
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+                return View(category);
+               
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         //
@@ -107,7 +107,7 @@ namespace SportClub.Controllers.BlogControllers
         // POST: /Category/Delete/5
 
         [HttpPost, ActionName("Delete")]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
             try
             {

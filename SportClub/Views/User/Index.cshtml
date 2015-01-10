@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SportClub.Models.UserProfile>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Список пользователей</h2>
+<p>
+    @Html.ActionLink("Добавить пользователя", "Create")
+</p>
+<ol></ol>
+<table>
+    <tr>
+        <th>Имя пользователя</th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.UserName
+        </td>
+    </tr>
+}      
+</table>
+
+@*@foreach (var item in Model) {
+<ul><li>@item.UserName</li></ul>
+    
+<ol><li>@item.UserName</li></ol>}*@

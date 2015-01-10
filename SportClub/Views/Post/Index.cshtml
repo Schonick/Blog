@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SportClub.Models.Blog.Post>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Posts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@foreach (var item in Model)
+{
+    <div class="col-md-9">
+        <br />
+        <h2>@Html.DisplayFor(modelItem => item.Title)</h2>
+
+        <div class="headArticle">
+            <table>
+                <tr>
+                    <td>
+                        <img class="imgico" src="~/Content/ContentBlog/calendar.png" />
+                        @Html.DisplayFor(modelItem => item.PublishDate)</td>
+                    <td>
+                        <img class="imgico" src="~/Content/ContentBlog/ava.png" />
+                        @Html.DisplayFor(modelItem => item.Author)</td>
+                    <td>
+                        <img class="imgico" src="~/Content/ContentBlog/comments1.png" />Visits</td>
+
+                    <td>
+                        <img class="imgico" src="~/Content/ContentBlog/edit.png" />
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+
+                    <td>
+                        <img class="imgico" src="~/Content/ContentBlog/delete.png" />
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+                </tr>
+            </table>
+        </div>
+        <article>
+            @Html.Raw(item.ShortDescription)
+            @*@Html.HiddenFor(modelItem=>item.Id)*@
+            @*@Html.DisplayFor(modelItem => item.ShortDescription)*@
+            <div>@Html.ActionLink("Continue reading ...", "Details", new { id = item.Id }) </div>
+
+        </article>
+        <br />
+    </div>
+}
+

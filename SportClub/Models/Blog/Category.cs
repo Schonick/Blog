@@ -11,8 +11,9 @@ namespace SportClub.Models.Blog
         [Key]
         public int Id { get; set; }
 
+        //[Required]
         [Display(Name = "Имя")]
-        [StringLength(50, MinimumLength = 5, ErrorMessage = "Введите название ")]
+        [StringLength(50, MinimumLength = 5, ErrorMessage = "Введите название. Минимум 5 символов ")]
         public string Name { get; set; }
 
         public string UrlSlug { get; set; }
@@ -29,6 +30,10 @@ namespace SportClub.Models.Blog
         public DateTime? Modified { get; set; }
         public Category()
         {
+            if (this.Id > 0)
+                this.Modified = DateTime.Now;
+
+            else
             this.Created = DateTime.Now;
         }
 

@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Список ролей</h2>
+<p>&nbsp;</p>
+<div class="spacerBody">
+    @Html.ActionLink("Создать новую роль", "RoleCreate") | @Html.ActionLink("Добавить роль пользователю", "RoleAddToUser")
+    <h2>Роли:</h2>
+    <div class="table">
+
+
+        @foreach (string s in Model)
+        {
+            <div class="tr">
+                <div class="td">
+                    @s
+                </div>
+                <div class="td">
+                    <span onclick="return confirm('Are you sure to delete?')">
+                        <a href="/Role/RoleDelete?RoleName=@s" class="delLink">
+                            <img src="~/Content/delete_16x16.png" alt="Delete" class="imgBorder0" />
+                            Удалить</a>
+                    </span>
+                </div>
+            </div>
+        }
+    </div>
+</div>

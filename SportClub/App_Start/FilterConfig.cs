@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using SportClub.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace SportClub
@@ -8,6 +9,7 @@ namespace SportClub
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new InitializeSimpleMembershipAttribute());
         }
     }
 }

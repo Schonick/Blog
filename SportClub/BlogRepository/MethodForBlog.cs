@@ -30,6 +30,7 @@ namespace SportClub.BlogRepository
 
         public void Create(Category item)
         {
+            item.Created = DateTime.Now;
             db.Categorys.Add(item);
 
         }

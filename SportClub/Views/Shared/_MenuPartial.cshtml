@@ -1,0 +1,43 @@
+﻿<ul id="menu">
+    @*   @if (ViewContext.HttpContext.User.IsInRole("Администратор"))
+                         {
+                         }
+                          @if (ViewContext.HttpContext.User.IsInRole("Модератор"))
+                         {
+                         }*@
+    @if (WebSecurity.IsAuthenticated)
+    {
+        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+        <li>@Html.ActionLink("О клубе", "About", "Home")</li>
+        <li>@Html.ActionLink("Правила клуба", "Rules", "Home")</li>
+        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+        <li>@Html.ActionLink("Цена", "Price", "Home")</li>
+        <li><a href="~/Foto/Default.html">Галерея</a></li>
+        <li>@Html.ActionLink("BlogList", "Index", "Category")</li>
+        <li>@Html.ActionLink("Post", "Index", "Post")</li>
+    }
+    else
+    {    
+        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+        <li>@Html.ActionLink("О клубе", "About", "Home")</li>
+        <li>@Html.ActionLink("Правила клуба", "Rules", "Home")</li>
+        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+        <li>@Html.ActionLink("Цена", "Price", "Home")</li>
+@*<li>@Html.ActionLink("Foto", "~/Foto/Default.html")</li>*@
+        <li><a href="~/Foto/Default.html">Галерея</a></li>
+    
+@*<li>@Html.ActionLink("Фитобар", "Index", "PhytobarProducts")</li>
+                        <li>@Html.ActionLink("Slider", "Slider", "Home")</li>
+                        <li>@Html.ActionLink("Role", "Index", "Roles")</li>
+                        <li>@Html.ActionLink("Абонемент", "Index", "Ticket")</li>
+                        <li>@Html.ActionLink("Зали", "Index", "SportHalls")</li>
+                        <li>@Html.ActionLink("Знижки", "Index", "Discounts")</li>
+                        <li>@Html.ActionLink("Клиенты", "Index", "Client")</li>
+                        <li>@Html.ActionLink("Посещение", "Index", "Visits")</li>
+                        <li>@Html.ActionLink("загрузка", "Index", "UploadFile")</li>
+                        <li>@Html.ActionLink("Тренери", "Index", "Trainer")</li>*@
+        <li>@Html.ActionLink("BlogList", "Index", "Category")</li>
+        <li>@Html.ActionLink("Post", "Index", "Post")</li>
+        <li>@Html.ActionLink("Роли", "Index", "Role")</li>
+    }
+</ul>

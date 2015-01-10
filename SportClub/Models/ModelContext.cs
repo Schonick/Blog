@@ -22,8 +22,7 @@ namespace SportClub.Models
         public DbSet<Ticket> Tickets { get; set; }//абонементи
         public DbSet<SportHalls> SportHalls { get; set; }//зали
 
-        public DbSet<UserProfile> UserProfiles { get; set; }//юзер
-        public DbSet<webpages_Roles> webpages_Roles { get; set; }  // добавляем таблицу ролей    
+        public DbSet<UserProfile> UserProfiles { get; set; }//юзер      
         public DbSet<Discounts> Discounts { get; set; }// знижки
         public DbSet<PhytobarProducts> PhytobarProducts { get; set; }
         public DbSet<Visits> Visits { get; set; }//відвідування

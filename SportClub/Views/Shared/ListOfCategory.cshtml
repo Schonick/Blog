@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SportClub.Models.Blog.Category>
+
+<div>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {        
+            @Html.DisplayFor(modelItem => item.Name)
+        }
+    }
+    else
+    {
+        <p>No Category found!</p>
+    }
+</div>

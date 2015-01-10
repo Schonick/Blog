@@ -1,4 +1,4 @@
-﻿h<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,59 +8,35 @@
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
     @*@Styles.Render("~/Content/kendo/css")
     <link rel="stylesheet" href="@Url.Content("~/Content/kendo/kendo.common.min.css")" />
     <link rel="stylesheet" href="@Url.Content("~/Content/kendo/kendo.metro.min.css")" />
     <script src="@Url.Content("~/Scripts/kendo/jquery.min.js")"></script>
     <script src="~/Scripts/kendo/kendo.web.min.js"></script>
     <script src="~/Scripts/kendo/kendo.aspnetmvc.min.js"></script>*@
-
+    @*    <script type="text/javascript" src="~/Scripts/tinymce/jquery.tinymce.js"></script>
+    <script type="text/javascript" src="~/Scripts/tinymce/tiny_mce.js"></script>*@
 </head>
 <body>
     <header>
         <div class="content-wrapper">
             <div class="float-left">
-                <img src="~/Content/SiteColor/logo-sparta.png" alt="Alternate Text" />                
-               
+                <img src="~/Content/SiteColor/logo-sparta.png" alt="Alternate Text" />
+
                 @*@Html.ActionLink(" ", "Index", "Home", null, new { id = "_Logo" })*@
                 @*<p class="site-title">@Html.ActionLink(" Sparta", "Index", "Home")</p>*@
             </div>
             <div class="float-right">
                 <section id="login">
                     @Html.Partial("_LoginPartial")
-                </section><br /><br />
-                <nav><br />
-                    <ul id="menu">
-                         @if (ViewContext.HttpContext.User.IsInRole("Администратор"))
-                         {
-                         }
-                          @if (ViewContext.HttpContext.User.IsInRole("Модератор"))
-                         {
-                         }
-                       
-                        <li>@Html.ActionLink("Главная", "Index", "Home")</li>
-                        <li>@Html.ActionLink("О клубе", "About", "Home")</li>
-                        <li>@Html.ActionLink("Правила клуба", "Rules", "Home")</li>
-                        <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("Цена", "Price", "Home")</li>
-                        @*<li>@Html.ActionLink("Foto", "~/Foto/Default.html")</li>*@
-                        <li><a href="~/Foto/Default.html">Галерея</a></li>
-                        <li>        </li>
-                        <li>        </li>
-                        <li>       </li>
-                        @*<li>@Html.ActionLink("Фитобар", "Index", "PhytobarProducts")</li>
-                        <li>@Html.ActionLink("Slider", "Slider", "Home")</li>
-                        <li>@Html.ActionLink("Role", "Index", "Roles")</li>
-
-                        <li>@Html.ActionLink("Абонемент", "Index", "Ticket")</li>
-                        <li>@Html.ActionLink("Зали", "Index", "SportHalls")</li>
-                        <li>@Html.ActionLink("Знижки", "Index", "Discounts")</li>
-                        <li>@Html.ActionLink("Клиенты", "Index", "Client")</li>
-                        <li>@Html.ActionLink("Посещение", "Index", "Visits")</li>
-                        <li>@Html.ActionLink("загрузка", "Index", "UploadFile")</li>
-                        <li>@Html.ActionLink("Тренери", "Index", "Trainer")</li>*@
-                           <li>@Html.ActionLink("blog", "Index", "Category")</li>
-                    </ul>
+                </section>
+              @*  <br />
+                <br />*@
+                <nav>
+                    <br />
+                    @Html.Partial("_MenuPartial")
                 </nav>
             </div>
         </div>
@@ -89,8 +65,8 @@
         </div>
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-      @Styles.Render("~/Content/themes/base/css")
+
+    @Styles.Render("~/Content/themes/base/css")
     @Scripts.Render("~/bundles/jqueryui")
     @*@Scripts.Render("~/bundles/kendo")*@
     @RenderSection("scripts", required: false)

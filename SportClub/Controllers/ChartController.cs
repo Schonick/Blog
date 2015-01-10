@@ -23,7 +23,7 @@ namespace SportClub.Controllers
                     xValue: new[] { "Peter", "Andrew", "Julie", "Mary", "Dave" },
                     yValues: new[] { "2", "6", "4", "5", "3" })
              .Write();
-
+            
             return null;
 
         }

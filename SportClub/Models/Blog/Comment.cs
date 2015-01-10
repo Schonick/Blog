@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
-
+using System.Web.Security;
+using WebMatrix.WebData;
 
 namespace SportClub.Models.Blog
 {
@@ -22,6 +23,11 @@ namespace SportClub.Models.Blog
         public string Content { get; set; }
 
         public virtual Post Post { get; set; }
+
+        public Comment()
+        {
+            this.DateCreated = DateTime.Now;                      
+        }
     }
 
 }

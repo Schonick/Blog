@@ -10,13 +10,15 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using SportClub.Filters;
 using SportClub.Models;
+using NLog;
 
 namespace SportClub.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
+    //[InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
         //
         // GET: /Account/Login
 
@@ -30,6 +32,7 @@ namespace SportClub.Controllers
         //
         // POST: /Account/Login
 
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -42,6 +45,7 @@ namespace SportClub.Controllers
 
             // Появление этого сообщения означает наличие ошибки; повторное отображение формы
             ModelState.AddModelError("", "Имя пользователя или пароль указаны неверно.");
+            logger.Error("Wrong password");
             return View(model);
         }
 
@@ -81,6 +85,16 @@ namespace SportClub.Controllers
                 {
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
                     WebSecurity.Login(model.UserName, model.Password);
+                    if (!Roles.RoleExists("User"))
+                    {
+                        Roles.CreateRole("User");
+                    }
+                    if (!Roles.RoleExists("Moderator"))
+                    {
+                        Roles.CreateRole("Moderator");
+                    }
+                    Roles.AddUsersToRole(new[] { model.UserName }, "User");
+                    logger.Info("New user with name :{0} was register in {1}", model.UserName, DateTime.Now);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

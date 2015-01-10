@@ -1,0 +1,94 @@
+﻿@model SportClub.Models.Blog.Post
+
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Post</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Author)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author)
+    </div>
+
+    <div class="display-label">
+
+        @Html.DisplayNameFor(model => model.ShortDescription)
+    </div>
+    <div class="display-field">
+        @*@Html.Raw(model => model.ShortDescription)*@
+        @Html.DisplayFor(model => model.ShortDescription)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @*@Html.Raw(model.Description)*@
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Meta)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Meta)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.UrlSlug)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UrlSlug)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Published)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Published)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PublishDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PublishDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Modified)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Modified)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CategoryId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoryId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<hr />
+@model SportClub.Models.Blog.Comment
+@*@Html.Partial("_CreateComment",Model.Comment)*@
+@Html.Partial("~/Views/Comment/_CreateComment.cshtml",Model.Comment)

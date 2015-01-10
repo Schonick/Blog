@@ -117,6 +117,11 @@ namespace SportClub.Controllers
         {
             return View();
         }
-   
+        public ActionResult Slaid()
+        {
+            ViewBag.Message = "Slaid";
+
+            return View();
+        }
     }
 }

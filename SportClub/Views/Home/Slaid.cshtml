@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Slaid";
+}
+
+<h2>Slaid</h2>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>slick</title>
+    <link rel="stylesheet" href="~/Content/slick.css" />
+</head>
+<body>
+    <div class="slider">
+        <div>
+            <img src="~/Content/251.png" alt="Slider 2">
+        </div>
+        <div>
+            <img src="~/Content/251.png" alt="Slider 2">
+        </div>
+        <div>
+            <img src="~/Content/251.png" alt="Slider 2">
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-migrate-1.2.1.js"></script>
+    <script src="~/Scripts/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.slider').slick({
+                dots: true,
+                speed: 300,
+                autoplay: true
+            });
+        });
+    </script>
+</body>
+</html>
